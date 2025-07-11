@@ -1,6 +1,6 @@
 import { prisma } from "@/app/utils/db";
 import { requireUser } from "@/app/utils/hooks";
-import { emailClient } from "@/app/utils/mailtrap";
+import { emailClient } from "@/app/utils/resend";
 import { NextResponse } from "next/server";
 
 export async function POST(
@@ -28,8 +28,8 @@ export async function POST(
     }
 
     const sender = {
-      email: "hello@demomailtrap.co",
-      name: "Mailtrap Test",
+      email: "dlrngo@mymail.mapua.edu.ph",
+      name: "Brevo Test",
     };
 
     const recipients = [

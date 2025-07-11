@@ -5,7 +5,7 @@ import { parseWithZod } from "@conform-to/zod";
 import { invoiceSchema, onboardingSchema } from "./utils/zodSchemas";
 import { prisma } from "./utils/db";
 import { redirect } from "next/navigation";
-import { emailClient } from "./utils/mailtrap";
+import { emailClient } from "./utils/brevo";
 import { formatCurrency } from "./utils/formatCurrency";
 
 
@@ -67,13 +67,13 @@ export async function createInvoice(prevState: any, formData: FormData) {
     });
 
     const sender = {
-      email: "hello@demomailtrap.co",
-      name: "Liam Erros Gotuato",
+      email: "accountingko@resend.com",
+      name: "Darren Lewis Ngo",
     };
 
     emailClient.send({
       from: sender,
-      to: [{email: 'liam.gotuato1@gmail.com'}],
+      to: [{email: 'dlrngo@mymail.mapua.edu.ph'}],
       template_uuid: "e4d66573-3de2-47de-83e7-b6cce54aeefb",
       template_variables: {
       "clientName": submission.value.clientName,
@@ -130,13 +130,13 @@ export async function editInvoice(prevState: any, formData: FormData) {
     })
   
     const sender = {
-      email: "hello@demomailtrap.co",
-      name: "Liam Erros Gotuato",
+      email: "accountingko@resend.com",
+      name: "Darren Lewis Ngo",
     };
 
     emailClient.send({
       from: sender,
-      to: [{email: 'liam.gotuato1@gmail.com'}],
+      to: [{email: 'dlrngo@mymail.mapua.edu.ph'}],
       template_uuid: "4f79dfa5-179f-4655-a10d-60d27af3ec65",
       template_variables: {
       "clientName": submission.value.clientName,
