@@ -25,6 +25,7 @@
     "bcryptjs": "^3.0.2",
     "brevo": "^1.0.0",
     "class-variance-authority": "^0.7.1",
+    "cloudflared": "^0.7.0",
     "clsx": "^2.1.1",
     "date-fns": "^4.1.0",
     "jsonwebtoken": "^9.0.2",

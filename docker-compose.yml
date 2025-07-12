@@ -21,13 +21,6 @@ services:
       - "3000:3000"
     environment:
       DATABASE_URL: postgresql://admin:password@db:5432/accountingko
-    command: >
-      sh -c "
-      pnpm install &&
-      npx prisma generate &&
-      npx prisma db push &&
-      pnpm run dev
-      "
     volumes:
       - .:/app
 
