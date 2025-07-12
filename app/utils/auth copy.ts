@@ -4,25 +4,24 @@ import { PrismaAdapter } from "@auth/prisma-adapter"
 import { PrismaClient } from "@prisma/client"
 
 const prisma = new PrismaClient();
-
+ 
 export const { handlers, signIn, signOut, auth } = NextAuth({
     adapter: PrismaAdapter(prisma),
-    trustHost: true,
     providers: [
         Nodemailer({
             server: {
-                host: "smtp.gmail.com",
-                port: 587,
-                secure: false, // true for 465, false for other ports
-                auth: {
-                    user: process.env.GMAIL_USER, // your-email@gmail.com
-                    pass: process.env.GMAIL_APP_PASSWORD, // your Gmail app password
-                },
+            host: process.env.EMAIL_SERVER_HOST,
+            port: process.env.EMAIL_SERVER_PORT,
+            auth: {
+                user: process.env.EMAIL_SERVER_USER,
+                pass: process.env.EMAIL_SERVER_PASSWORD,
             },
-            from: process.env.GMAIL_USER,
+            },
+            from: process.env.EMAIL_FROM,
         }),
     ],
-    pages: {
+
+    pages:{
         verifyRequest: "/verify"
     }
 })

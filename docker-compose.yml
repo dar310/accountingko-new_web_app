@@ -21,11 +21,6 @@ services:
       - "3000:3000"
     environment:
       DATABASE_URL: postgresql://admin:password@db:5432/accountingko
-      EMAIL_SERVER_HOST: ${EMAIL_SERVER_HOST}
-      EMAIL_SERVER_PORT: ${EMAIL_SERVER_PORT}
-      EMAIL_SERVER_USER: ${EMAIL_SERVER_USER}
-      EMAIL_SERVER_PASSWORD: ${EMAIL_SERVER_PASSWORD}
-      EMAIL_FROM: ${EMAIL_FROM}
     command: >
       sh -c "
       pnpm install &&

@@ -28,19 +28,19 @@ export async function POST(
     }
 
     const sender = {
-      email: "dlrngo@mymail.mapua.edu.ph",
-      name: "Brevo Test",
+      email: "dardex999@gmail.com",
+      name: "Accounting Ko",
     };
 
     const recipients = [
         {
-          email: "dlrngo@mymail.mapua.edu.ph",
+          email: invoiceData.clientEmail,
         }
       ];
 
     emailClient.send({
       from: sender,
-      to: [{ email: "dlrngo@mymail.mapua.edu.ph" }],
+      to: [{ email: invoiceData.clientEmail }],
       template_uuid: "5ce0aaf9-d7a3-40b5-b267-92fc39974074",
         template_variables: {
         "first_name": invoiceData.clientName,
