@@ -26,11 +26,8 @@ install_cloudflared() {
 # Check if cloudflared is installed; if not, install it
 if ! command -v cloudflared > /dev/null 2>&1; then
   install_cloudflared
-<<<<<<< HEAD
 else
   echo "cloudflared already installed."
-=======
->>>>>>> d1aaa30 (New homepage)
 fi
 
 # Start cloudflared tunnel in background and redirect output to a file
@@ -55,23 +52,19 @@ done
 # Extract the URL
 TUNNEL_URL=$(head -n1 /tmp/tunnel_url.txt)
 
-echo "Go to this Link and wait for Next.js to start: $TUNNEL_URL"
-
-<<<<<<< HEAD
-# Update .env.local or create it with NEXTAUTH_URL
-if [ -f .env.local ]; then
-  # If NEXTAUTH_URL exists, replace it, else append it
-  if grep -q '^NEXTAUTH_URL=' .env.local; then
-    sed -i "s|^NEXTAUTH_URL=.*|NEXTAUTH_URL=$TUNNEL_URL|" .env.local
-  else
-    echo "NEXTAUTH_URL=$TUNNEL_URL" >> .env.local
-  fi
-else
-  # Create the file with NEXTAUTH_URL
-  echo "NEXTAUTH_URL=$TUNNEL_URL" > .env.local
-fi
-
-=======
+#echo "Go to this Link and wait for Next.js to start: $TUNNEL_URL"
+## Update .env.local or create it with NEXTAUTH_URL
+#if [ -f .env.local ]; then
+#  # If NEXTAUTH_URL exists, replace it, else append it
+#  if grep -q '^NEXTAUTH_URL=' .env.local; then
+#    sed -i "s|^NEXTAUTH_URL=.*|NEXTAUTH_URL=$TUNNEL_URL|" .env.local
+#  else
+#    echo "NEXTAUTH_URL=$TUNNEL_URL" >> .env.local
+#  fi
+#else
+#  # Create the file with NEXTAUTH_URL
+#  echo "NEXTAUTH_URL=$TUNNEL_URL" > .env.local
+#fi
 
 GITHUB_TOKEN=$(cat .githubToken)
 # Upload the URL to GitHub Gist
@@ -164,14 +157,9 @@ fi
 # Construct raw Gist URL
 RAW_URL="https://gist.githubusercontent.com/$USERNAME/$GIST_ID/raw/tunnel_url.txt"
 echo "Tunnel URL available at: $RAW_URL"
-
->>>>>>> d1aaa30 (New homepage)
 # Run your prisma commands and start the dev server
 pnpm install
 npx prisma generate
 npx prisma db push
-<<<<<<< HEAD
-=======
 #npx prisma db push --accept-data-loss
->>>>>>> d1aaa30 (New homepage)
 pnpm run dev
