@@ -13,7 +13,9 @@
 # testing
 /coverage
 # github token
-/.githubToken
+.githubToken
+.gist_id
+.gist_user
 # next.js
 /.next/
 /out/
