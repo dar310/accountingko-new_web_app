@@ -12,7 +12,8 @@
 
 # testing
 /coverage
-
+# github token
+/.githubToken
 # next.js
 /.next/
 /out/
