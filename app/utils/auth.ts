@@ -27,7 +27,6 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         verifyRequest: "/verify"
     }
 })
-=======
 const prisma = new PrismaClient()
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
@@ -50,4 +49,3 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
     verifyRequest: "/verify"   
 },
 trustHost: true})
->>>>>>> d1aaa30 (New homepage)
