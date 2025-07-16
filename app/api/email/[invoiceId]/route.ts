@@ -1,6 +1,5 @@
 import { prisma } from "@/app/utils/db";
 import { requireUser } from "@/app/utils/hooks";
-import { emailClient } from "@/app/utils/resend";
 import { NextResponse } from "next/server";
 
 export async function POST(
