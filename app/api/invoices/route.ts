@@ -37,11 +37,53 @@ async function requireUserFromAPI(request: Request) {
   }
 }
 
+// Helper function for simple invoice fetching (renamed from GET_SIMPLE)
+async function getInvoicesSimple(request: Request) {
+  try {
+    const user = await requireUserFromAPI(request);
+    
+    // For mobile users, search by mobileUserId
+    const invoices = await prisma.invoice.findMany({
+      where: { 
+        mobileUserId: user.id  // Use mobile user ID directly
+      },
+      orderBy: { createdAt: "desc" },
+      include: {
+        mobileUser: {
+          select: { id: true, email: true, name: true }
+        }
+      }
+    });
+
+    console.log(`Found ${invoices.length} invoices for mobileUserId: ${user.id}`);
+
+    return NextResponse.json({
+      success: true,
+      data: invoices
+    });
+    
+  } catch (error) {
+    console.error("Invoice fetch error:", error);
+    return NextResponse.json({ 
+      error: (error as Error).message 
+    }, { status: 401 });
+  }
+}
+
 export async function GET(request: Request) {
   try {
     const user = await requireUserFromAPI(request);
     
     console.log("Fetching invoices for user:", user);
+    
+    // Check if you want to use simple approach via URL parameter
+    const url = new URL(request.url);
+    const simple = url.searchParams.get('simple');
+    
+    if (simple === 'true') {
+      // Use the simple approach
+      return getInvoicesSimple(request);
+    }
     
     // Based on your schema, invoices can be linked via userId OR mobileUserId
     // For mobile users, we need to check both possibilities
@@ -160,38 +202,5 @@ export async function POST(request: Request) {
     return NextResponse.json({ 
       error: (error as Error).message 
     }, { status: 500 });
-  }
-}
-
-// Alternative simpler approach - just use mobileUserId for mobile users
-export async function GET_SIMPLE(request: Request) {
-  try {
-    const user = await requireUserFromAPI(request);
-    
-    // For mobile users, search by mobileUserId
-    const invoices = await prisma.invoice.findMany({
-      where: { 
-        mobileUserId: user.id  // Use mobile user ID directly
-      },
-      orderBy: { createdAt: "desc" },
-      include: {
-        mobileUser: {
-          select: { id: true, email: true, name: true }
-        }
-      }
-    });
-
-    console.log(`Found ${invoices.length} invoices for mobileUserId: ${user.id}`);
-
-    return NextResponse.json({
-      success: true,
-      data: invoices
-    });
-    
-  } catch (error) {
-    console.error("Invoice fetch error:", error);
-    return NextResponse.json({ 
-      error: (error as Error).message 
-    }, { status: 401 });
   }
 }
