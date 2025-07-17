@@ -5999,25 +5999,25 @@ export namespace Prisma {
   }
 
   export type InvoiceAvgAggregateOutputType = {
-    total: number | null
+    total: Decimal | null
     dueDate: number | null
     invoiceNumber: number | null
     invoiceItemQuantity: number | null
-    invoiceItemRate: number | null
+    invoiceItemRate: Decimal | null
   }
 
   export type InvoiceSumAggregateOutputType = {
-    total: number | null
+    total: Decimal | null
     dueDate: number | null
     invoiceNumber: number | null
     invoiceItemQuantity: number | null
-    invoiceItemRate: number | null
+    invoiceItemRate: Decimal | null
   }
 
   export type InvoiceMinAggregateOutputType = {
     id: string | null
     invoiceName: string | null
-    total: number | null
+    total: Decimal | null
     status: $Enums.InvoiceStatus | null
     date: Date | null
     dueDate: number | null
@@ -6032,7 +6032,7 @@ export namespace Prisma {
     note: string | null
     invoiceItemDescription: string | null
     invoiceItemQuantity: number | null
-    invoiceItemRate: number | null
+    invoiceItemRate: Decimal | null
     createdAt: Date | null
     updatedAt: Date | null
     userId: string | null
@@ -6042,7 +6042,7 @@ export namespace Prisma {
   export type InvoiceMaxAggregateOutputType = {
     id: string | null
     invoiceName: string | null
-    total: number | null
+    total: Decimal | null
     status: $Enums.InvoiceStatus | null
     date: Date | null
     dueDate: number | null
@@ -6057,7 +6057,7 @@ export namespace Prisma {
     note: string | null
     invoiceItemDescription: string | null
     invoiceItemQuantity: number | null
-    invoiceItemRate: number | null
+    invoiceItemRate: Decimal | null
     createdAt: Date | null
     updatedAt: Date | null
     userId: string | null
@@ -6272,7 +6272,7 @@ export namespace Prisma {
   export type InvoiceGroupByOutputType = {
     id: string
     invoiceName: string
-    total: number
+    total: Decimal
     status: $Enums.InvoiceStatus
     date: Date
     dueDate: number
@@ -6287,7 +6287,7 @@ export namespace Prisma {
     note: string | null
     invoiceItemDescription: string
     invoiceItemQuantity: number
-    invoiceItemRate: number
+    invoiceItemRate: Decimal
     createdAt: Date
     updatedAt: Date
     userId: string | null
@@ -6442,7 +6442,7 @@ export namespace Prisma {
     scalars: $Extensions.GetPayloadResult<{
       id: string
       invoiceName: string
-      total: number
+      total: Prisma.Decimal
       status: $Enums.InvoiceStatus
       date: Date
       dueDate: number
@@ -6457,7 +6457,7 @@ export namespace Prisma {
       note: string | null
       invoiceItemDescription: string
       invoiceItemQuantity: number
-      invoiceItemRate: number
+      invoiceItemRate: Prisma.Decimal
       createdAt: Date
       updatedAt: Date
       userId: string | null
@@ -6889,7 +6889,7 @@ export namespace Prisma {
   interface InvoiceFieldRefs {
     readonly id: FieldRef<"Invoice", 'String'>
     readonly invoiceName: FieldRef<"Invoice", 'String'>
-    readonly total: FieldRef<"Invoice", 'Int'>
+    readonly total: FieldRef<"Invoice", 'Decimal'>
     readonly status: FieldRef<"Invoice", 'InvoiceStatus'>
     readonly date: FieldRef<"Invoice", 'DateTime'>
     readonly dueDate: FieldRef<"Invoice", 'Int'>
@@ -6904,7 +6904,7 @@ export namespace Prisma {
     readonly note: FieldRef<"Invoice", 'String'>
     readonly invoiceItemDescription: FieldRef<"Invoice", 'String'>
     readonly invoiceItemQuantity: FieldRef<"Invoice", 'Int'>
-    readonly invoiceItemRate: FieldRef<"Invoice", 'Int'>
+    readonly invoiceItemRate: FieldRef<"Invoice", 'Decimal'>
     readonly createdAt: FieldRef<"Invoice", 'DateTime'>
     readonly updatedAt: FieldRef<"Invoice", 'DateTime'>
     readonly userId: FieldRef<"Invoice", 'String'>
@@ -9820,6 +9820,20 @@ export namespace Prisma {
 
 
   /**
+   * Reference to a field of type 'Decimal'
+   */
+  export type DecimalFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Decimal'>
+    
+
+
+  /**
+   * Reference to a field of type 'Decimal[]'
+   */
+  export type ListDecimalFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Decimal[]'>
+    
+
+
+  /**
    * Reference to a field of type 'InvoiceStatus'
    */
   export type EnumInvoiceStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'InvoiceStatus'>
@@ -10146,7 +10160,7 @@ export namespace Prisma {
     NOT?: InvoiceWhereInput | InvoiceWhereInput[]
     id?: StringFilter<"Invoice"> | string
     invoiceName?: StringFilter<"Invoice"> | string
-    total?: IntFilter<"Invoice"> | number
+    total?: DecimalFilter<"Invoice"> | Decimal | DecimalJsLike | number | string
     status?: EnumInvoiceStatusFilter<"Invoice"> | $Enums.InvoiceStatus
     date?: DateTimeFilter<"Invoice"> | Date | string
     dueDate?: IntFilter<"Invoice"> | number
@@ -10161,7 +10175,7 @@ export namespace Prisma {
     note?: StringNullableFilter<"Invoice"> | string | null
     invoiceItemDescription?: StringFilter<"Invoice"> | string
     invoiceItemQuantity?: IntFilter<"Invoice"> | number
-    invoiceItemRate?: IntFilter<"Invoice"> | number
+    invoiceItemRate?: DecimalFilter<"Invoice"> | Decimal | DecimalJsLike | number | string
     createdAt?: DateTimeFilter<"Invoice"> | Date | string
     updatedAt?: DateTimeFilter<"Invoice"> | Date | string
     userId?: StringNullableFilter<"Invoice"> | string | null
@@ -10203,7 +10217,7 @@ export namespace Prisma {
     OR?: InvoiceWhereInput[]
     NOT?: InvoiceWhereInput | InvoiceWhereInput[]
     invoiceName?: StringFilter<"Invoice"> | string
-    total?: IntFilter<"Invoice"> | number
+    total?: DecimalFilter<"Invoice"> | Decimal | DecimalJsLike | number | string
     status?: EnumInvoiceStatusFilter<"Invoice"> | $Enums.InvoiceStatus
     date?: DateTimeFilter<"Invoice"> | Date | string
     dueDate?: IntFilter<"Invoice"> | number
@@ -10218,7 +10232,7 @@ export namespace Prisma {
     note?: StringNullableFilter<"Invoice"> | string | null
     invoiceItemDescription?: StringFilter<"Invoice"> | string
     invoiceItemQuantity?: IntFilter<"Invoice"> | number
-    invoiceItemRate?: IntFilter<"Invoice"> | number
+    invoiceItemRate?: DecimalFilter<"Invoice"> | Decimal | DecimalJsLike | number | string
     createdAt?: DateTimeFilter<"Invoice"> | Date | string
     updatedAt?: DateTimeFilter<"Invoice"> | Date | string
     userId?: StringNullableFilter<"Invoice"> | string | null
@@ -10263,7 +10277,7 @@ export namespace Prisma {
     NOT?: InvoiceScalarWhereWithAggregatesInput | InvoiceScalarWhereWithAggregatesInput[]
     id?: StringWithAggregatesFilter<"Invoice"> | string
     invoiceName?: StringWithAggregatesFilter<"Invoice"> | string
-    total?: IntWithAggregatesFilter<"Invoice"> | number
+    total?: DecimalWithAggregatesFilter<"Invoice"> | Decimal | DecimalJsLike | number | string
     status?: EnumInvoiceStatusWithAggregatesFilter<"Invoice"> | $Enums.InvoiceStatus
     date?: DateTimeWithAggregatesFilter<"Invoice"> | Date | string
     dueDate?: IntWithAggregatesFilter<"Invoice"> | number
@@ -10278,7 +10292,7 @@ export namespace Prisma {
     note?: StringNullableWithAggregatesFilter<"Invoice"> | string | null
     invoiceItemDescription?: StringWithAggregatesFilter<"Invoice"> | string
     invoiceItemQuantity?: IntWithAggregatesFilter<"Invoice"> | number
-    invoiceItemRate?: IntWithAggregatesFilter<"Invoice"> | number
+    invoiceItemRate?: DecimalWithAggregatesFilter<"Invoice"> | Decimal | DecimalJsLike | number | string
     createdAt?: DateTimeWithAggregatesFilter<"Invoice"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"Invoice"> | Date | string
     userId?: StringNullableWithAggregatesFilter<"Invoice"> | string | null
@@ -10741,7 +10755,7 @@ export namespace Prisma {
   export type InvoiceCreateInput = {
     id?: string
     invoiceName: string
-    total: number
+    total: Decimal | DecimalJsLike | number | string
     status: $Enums.InvoiceStatus
     date: Date | string
     dueDate: number
@@ -10756,7 +10770,7 @@ export namespace Prisma {
     note?: string | null
     invoiceItemDescription: string
     invoiceItemQuantity: number
-    invoiceItemRate: number
+    invoiceItemRate: Decimal | DecimalJsLike | number | string
     createdAt?: Date | string
     updatedAt?: Date | string
     User?: UserCreateNestedOneWithoutInvoicesInput
@@ -10766,7 +10780,7 @@ export namespace Prisma {
   export type InvoiceUncheckedCreateInput = {
     id?: string
     invoiceName: string
-    total: number
+    total: Decimal | DecimalJsLike | number | string
     status: $Enums.InvoiceStatus
     date: Date | string
     dueDate: number
@@ -10781,7 +10795,7 @@ export namespace Prisma {
     note?: string | null
     invoiceItemDescription: string
     invoiceItemQuantity: number
-    invoiceItemRate: number
+    invoiceItemRate: Decimal | DecimalJsLike | number | string
     createdAt?: Date | string
     updatedAt?: Date | string
     userId?: string | null
@@ -10791,7 +10805,7 @@ export namespace Prisma {
   export type InvoiceUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     invoiceName?: StringFieldUpdateOperationsInput | string
-    total?: IntFieldUpdateOperationsInput | number
+    total?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     status?: EnumInvoiceStatusFieldUpdateOperationsInput | $Enums.InvoiceStatus
     date?: DateTimeFieldUpdateOperationsInput | Date | string
     dueDate?: IntFieldUpdateOperationsInput | number
@@ -10806,7 +10820,7 @@ export namespace Prisma {
     note?: NullableStringFieldUpdateOperationsInput | string | null
     invoiceItemDescription?: StringFieldUpdateOperationsInput | string
     invoiceItemQuantity?: IntFieldUpdateOperationsInput | number
-    invoiceItemRate?: IntFieldUpdateOperationsInput | number
+    invoiceItemRate?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     User?: UserUpdateOneWithoutInvoicesNestedInput
@@ -10816,7 +10830,7 @@ export namespace Prisma {
   export type InvoiceUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     invoiceName?: StringFieldUpdateOperationsInput | string
-    total?: IntFieldUpdateOperationsInput | number
+    total?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     status?: EnumInvoiceStatusFieldUpdateOperationsInput | $Enums.InvoiceStatus
     date?: DateTimeFieldUpdateOperationsInput | Date | string
     dueDate?: IntFieldUpdateOperationsInput | number
@@ -10831,7 +10845,7 @@ export namespace Prisma {
     note?: NullableStringFieldUpdateOperationsInput | string | null
     invoiceItemDescription?: StringFieldUpdateOperationsInput | string
     invoiceItemQuantity?: IntFieldUpdateOperationsInput | number
-    invoiceItemRate?: IntFieldUpdateOperationsInput | number
+    invoiceItemRate?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     userId?: NullableStringFieldUpdateOperationsInput | string | null
@@ -10841,7 +10855,7 @@ export namespace Prisma {
   export type InvoiceCreateManyInput = {
     id?: string
     invoiceName: string
-    total: number
+    total: Decimal | DecimalJsLike | number | string
     status: $Enums.InvoiceStatus
     date: Date | string
     dueDate: number
@@ -10856,7 +10870,7 @@ export namespace Prisma {
     note?: string | null
     invoiceItemDescription: string
     invoiceItemQuantity: number
-    invoiceItemRate: number
+    invoiceItemRate: Decimal | DecimalJsLike | number | string
     createdAt?: Date | string
     updatedAt?: Date | string
     userId?: string | null
@@ -10866,7 +10880,7 @@ export namespace Prisma {
   export type InvoiceUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
     invoiceName?: StringFieldUpdateOperationsInput | string
-    total?: IntFieldUpdateOperationsInput | number
+    total?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     status?: EnumInvoiceStatusFieldUpdateOperationsInput | $Enums.InvoiceStatus
     date?: DateTimeFieldUpdateOperationsInput | Date | string
     dueDate?: IntFieldUpdateOperationsInput | number
@@ -10881,7 +10895,7 @@ export namespace Prisma {
     note?: NullableStringFieldUpdateOperationsInput | string | null
     invoiceItemDescription?: StringFieldUpdateOperationsInput | string
     invoiceItemQuantity?: IntFieldUpdateOperationsInput | number
-    invoiceItemRate?: IntFieldUpdateOperationsInput | number
+    invoiceItemRate?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -10889,7 +10903,7 @@ export namespace Prisma {
   export type InvoiceUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
     invoiceName?: StringFieldUpdateOperationsInput | string
-    total?: IntFieldUpdateOperationsInput | number
+    total?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     status?: EnumInvoiceStatusFieldUpdateOperationsInput | $Enums.InvoiceStatus
     date?: DateTimeFieldUpdateOperationsInput | Date | string
     dueDate?: IntFieldUpdateOperationsInput | number
@@ -10904,7 +10918,7 @@ export namespace Prisma {
     note?: NullableStringFieldUpdateOperationsInput | string | null
     invoiceItemDescription?: StringFieldUpdateOperationsInput | string
     invoiceItemQuantity?: IntFieldUpdateOperationsInput | number
-    invoiceItemRate?: IntFieldUpdateOperationsInput | number
+    invoiceItemRate?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     userId?: NullableStringFieldUpdateOperationsInput | string | null
@@ -11407,6 +11421,24 @@ export namespace Prisma {
     expires?: SortOrder
   }
 
+  export type DecimalFilter<$PrismaModel = never> = {
+    equals?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    in?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel>
+    notIn?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel>
+    lt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    lte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    gt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    gte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    not?: NestedDecimalFilter<$PrismaModel> | Decimal | DecimalJsLike | number | string
+  }
+
+  export type EnumInvoiceStatusFilter<$PrismaModel = never> = {
+    equals?: $Enums.InvoiceStatus | EnumInvoiceStatusFieldRefInput<$PrismaModel>
+    in?: $Enums.InvoiceStatus[] | ListEnumInvoiceStatusFieldRefInput<$PrismaModel>
+    notIn?: $Enums.InvoiceStatus[] | ListEnumInvoiceStatusFieldRefInput<$PrismaModel>
+    not?: NestedEnumInvoiceStatusFilter<$PrismaModel> | $Enums.InvoiceStatus
+  }
+
   export type IntFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel>
     in?: number[] | ListIntFieldRefInput<$PrismaModel>
@@ -11416,13 +11448,6 @@ export namespace Prisma {
     gt?: number | IntFieldRefInput<$PrismaModel>
     gte?: number | IntFieldRefInput<$PrismaModel>
     not?: NestedIntFilter<$PrismaModel> | number
-  }
-
-  export type EnumInvoiceStatusFilter<$PrismaModel = never> = {
-    equals?: $Enums.InvoiceStatus | EnumInvoiceStatusFieldRefInput<$PrismaModel>
-    in?: $Enums.InvoiceStatus[] | ListEnumInvoiceStatusFieldRefInput<$PrismaModel>
-    notIn?: $Enums.InvoiceStatus[] | ListEnumInvoiceStatusFieldRefInput<$PrismaModel>
-    not?: NestedEnumInvoiceStatusFilter<$PrismaModel> | $Enums.InvoiceStatus
   }
 
   export type UserNullableScalarRelationFilter = {
@@ -11526,6 +11551,32 @@ export namespace Prisma {
     invoiceItemRate?: SortOrder
   }
 
+  export type DecimalWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    in?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel>
+    notIn?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel>
+    lt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    lte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    gt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    gte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    not?: NestedDecimalWithAggregatesFilter<$PrismaModel> | Decimal | DecimalJsLike | number | string
+    _count?: NestedIntFilter<$PrismaModel>
+    _avg?: NestedDecimalFilter<$PrismaModel>
+    _sum?: NestedDecimalFilter<$PrismaModel>
+    _min?: NestedDecimalFilter<$PrismaModel>
+    _max?: NestedDecimalFilter<$PrismaModel>
+  }
+
+  export type EnumInvoiceStatusWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.InvoiceStatus | EnumInvoiceStatusFieldRefInput<$PrismaModel>
+    in?: $Enums.InvoiceStatus[] | ListEnumInvoiceStatusFieldRefInput<$PrismaModel>
+    notIn?: $Enums.InvoiceStatus[] | ListEnumInvoiceStatusFieldRefInput<$PrismaModel>
+    not?: NestedEnumInvoiceStatusWithAggregatesFilter<$PrismaModel> | $Enums.InvoiceStatus
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumInvoiceStatusFilter<$PrismaModel>
+    _max?: NestedEnumInvoiceStatusFilter<$PrismaModel>
+  }
+
   export type IntWithAggregatesFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel>
     in?: number[] | ListIntFieldRefInput<$PrismaModel>
@@ -11540,16 +11591,6 @@ export namespace Prisma {
     _sum?: NestedIntFilter<$PrismaModel>
     _min?: NestedIntFilter<$PrismaModel>
     _max?: NestedIntFilter<$PrismaModel>
-  }
-
-  export type EnumInvoiceStatusWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: $Enums.InvoiceStatus | EnumInvoiceStatusFieldRefInput<$PrismaModel>
-    in?: $Enums.InvoiceStatus[] | ListEnumInvoiceStatusFieldRefInput<$PrismaModel>
-    notIn?: $Enums.InvoiceStatus[] | ListEnumInvoiceStatusFieldRefInput<$PrismaModel>
-    not?: NestedEnumInvoiceStatusWithAggregatesFilter<$PrismaModel> | $Enums.InvoiceStatus
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedEnumInvoiceStatusFilter<$PrismaModel>
-    _max?: NestedEnumInvoiceStatusFilter<$PrismaModel>
   }
 
   export type BoolFilter<$PrismaModel = never> = {
@@ -11915,16 +11956,24 @@ export namespace Prisma {
     connect?: MobileUserWhereUniqueInput
   }
 
+  export type DecimalFieldUpdateOperationsInput = {
+    set?: Decimal | DecimalJsLike | number | string
+    increment?: Decimal | DecimalJsLike | number | string
+    decrement?: Decimal | DecimalJsLike | number | string
+    multiply?: Decimal | DecimalJsLike | number | string
+    divide?: Decimal | DecimalJsLike | number | string
+  }
+
+  export type EnumInvoiceStatusFieldUpdateOperationsInput = {
+    set?: $Enums.InvoiceStatus
+  }
+
   export type IntFieldUpdateOperationsInput = {
     set?: number
     increment?: number
     decrement?: number
     multiply?: number
     divide?: number
-  }
-
-  export type EnumInvoiceStatusFieldUpdateOperationsInput = {
-    set?: $Enums.InvoiceStatus
   }
 
   export type UserUpdateOneWithoutInvoicesNestedInput = {
@@ -12184,11 +12233,48 @@ export namespace Prisma {
     not?: NestedFloatNullableFilter<$PrismaModel> | number | null
   }
 
+  export type NestedDecimalFilter<$PrismaModel = never> = {
+    equals?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    in?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel>
+    notIn?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel>
+    lt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    lte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    gt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    gte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    not?: NestedDecimalFilter<$PrismaModel> | Decimal | DecimalJsLike | number | string
+  }
+
   export type NestedEnumInvoiceStatusFilter<$PrismaModel = never> = {
     equals?: $Enums.InvoiceStatus | EnumInvoiceStatusFieldRefInput<$PrismaModel>
     in?: $Enums.InvoiceStatus[] | ListEnumInvoiceStatusFieldRefInput<$PrismaModel>
     notIn?: $Enums.InvoiceStatus[] | ListEnumInvoiceStatusFieldRefInput<$PrismaModel>
     not?: NestedEnumInvoiceStatusFilter<$PrismaModel> | $Enums.InvoiceStatus
+  }
+
+  export type NestedDecimalWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    in?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel>
+    notIn?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel>
+    lt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    lte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    gt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    gte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    not?: NestedDecimalWithAggregatesFilter<$PrismaModel> | Decimal | DecimalJsLike | number | string
+    _count?: NestedIntFilter<$PrismaModel>
+    _avg?: NestedDecimalFilter<$PrismaModel>
+    _sum?: NestedDecimalFilter<$PrismaModel>
+    _min?: NestedDecimalFilter<$PrismaModel>
+    _max?: NestedDecimalFilter<$PrismaModel>
+  }
+
+  export type NestedEnumInvoiceStatusWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.InvoiceStatus | EnumInvoiceStatusFieldRefInput<$PrismaModel>
+    in?: $Enums.InvoiceStatus[] | ListEnumInvoiceStatusFieldRefInput<$PrismaModel>
+    notIn?: $Enums.InvoiceStatus[] | ListEnumInvoiceStatusFieldRefInput<$PrismaModel>
+    not?: NestedEnumInvoiceStatusWithAggregatesFilter<$PrismaModel> | $Enums.InvoiceStatus
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumInvoiceStatusFilter<$PrismaModel>
+    _max?: NestedEnumInvoiceStatusFilter<$PrismaModel>
   }
 
   export type NestedIntWithAggregatesFilter<$PrismaModel = never> = {
@@ -12216,16 +12302,6 @@ export namespace Prisma {
     gt?: number | FloatFieldRefInput<$PrismaModel>
     gte?: number | FloatFieldRefInput<$PrismaModel>
     not?: NestedFloatFilter<$PrismaModel> | number
-  }
-
-  export type NestedEnumInvoiceStatusWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: $Enums.InvoiceStatus | EnumInvoiceStatusFieldRefInput<$PrismaModel>
-    in?: $Enums.InvoiceStatus[] | ListEnumInvoiceStatusFieldRefInput<$PrismaModel>
-    notIn?: $Enums.InvoiceStatus[] | ListEnumInvoiceStatusFieldRefInput<$PrismaModel>
-    not?: NestedEnumInvoiceStatusWithAggregatesFilter<$PrismaModel> | $Enums.InvoiceStatus
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedEnumInvoiceStatusFilter<$PrismaModel>
-    _max?: NestedEnumInvoiceStatusFilter<$PrismaModel>
   }
 
   export type NestedBoolFilter<$PrismaModel = never> = {
@@ -12338,7 +12414,7 @@ export namespace Prisma {
   export type InvoiceCreateWithoutUserInput = {
     id?: string
     invoiceName: string
-    total: number
+    total: Decimal | DecimalJsLike | number | string
     status: $Enums.InvoiceStatus
     date: Date | string
     dueDate: number
@@ -12353,7 +12429,7 @@ export namespace Prisma {
     note?: string | null
     invoiceItemDescription: string
     invoiceItemQuantity: number
-    invoiceItemRate: number
+    invoiceItemRate: Decimal | DecimalJsLike | number | string
     createdAt?: Date | string
     updatedAt?: Date | string
     mobileUser?: MobileUserCreateNestedOneWithoutInvoicesInput
@@ -12362,7 +12438,7 @@ export namespace Prisma {
   export type InvoiceUncheckedCreateWithoutUserInput = {
     id?: string
     invoiceName: string
-    total: number
+    total: Decimal | DecimalJsLike | number | string
     status: $Enums.InvoiceStatus
     date: Date | string
     dueDate: number
@@ -12377,7 +12453,7 @@ export namespace Prisma {
     note?: string | null
     invoiceItemDescription: string
     invoiceItemQuantity: number
-    invoiceItemRate: number
+    invoiceItemRate: Decimal | DecimalJsLike | number | string
     createdAt?: Date | string
     updatedAt?: Date | string
     mobileUserId?: string | null
@@ -12537,7 +12613,7 @@ export namespace Prisma {
     NOT?: InvoiceScalarWhereInput | InvoiceScalarWhereInput[]
     id?: StringFilter<"Invoice"> | string
     invoiceName?: StringFilter<"Invoice"> | string
-    total?: IntFilter<"Invoice"> | number
+    total?: DecimalFilter<"Invoice"> | Decimal | DecimalJsLike | number | string
     status?: EnumInvoiceStatusFilter<"Invoice"> | $Enums.InvoiceStatus
     date?: DateTimeFilter<"Invoice"> | Date | string
     dueDate?: IntFilter<"Invoice"> | number
@@ -12552,7 +12628,7 @@ export namespace Prisma {
     note?: StringNullableFilter<"Invoice"> | string | null
     invoiceItemDescription?: StringFilter<"Invoice"> | string
     invoiceItemQuantity?: IntFilter<"Invoice"> | number
-    invoiceItemRate?: IntFilter<"Invoice"> | number
+    invoiceItemRate?: DecimalFilter<"Invoice"> | Decimal | DecimalJsLike | number | string
     createdAt?: DateTimeFilter<"Invoice"> | Date | string
     updatedAt?: DateTimeFilter<"Invoice"> | Date | string
     userId?: StringNullableFilter<"Invoice"> | string | null
@@ -12967,7 +13043,7 @@ export namespace Prisma {
   export type InvoiceCreateWithoutMobileUserInput = {
     id?: string
     invoiceName: string
-    total: number
+    total: Decimal | DecimalJsLike | number | string
     status: $Enums.InvoiceStatus
     date: Date | string
     dueDate: number
@@ -12982,7 +13058,7 @@ export namespace Prisma {
     note?: string | null
     invoiceItemDescription: string
     invoiceItemQuantity: number
-    invoiceItemRate: number
+    invoiceItemRate: Decimal | DecimalJsLike | number | string
     createdAt?: Date | string
     updatedAt?: Date | string
     User?: UserCreateNestedOneWithoutInvoicesInput
@@ -12991,7 +13067,7 @@ export namespace Prisma {
   export type InvoiceUncheckedCreateWithoutMobileUserInput = {
     id?: string
     invoiceName: string
-    total: number
+    total: Decimal | DecimalJsLike | number | string
     status: $Enums.InvoiceStatus
     date: Date | string
     dueDate: number
@@ -13006,7 +13082,7 @@ export namespace Prisma {
     note?: string | null
     invoiceItemDescription: string
     invoiceItemQuantity: number
-    invoiceItemRate: number
+    invoiceItemRate: Decimal | DecimalJsLike | number | string
     createdAt?: Date | string
     updatedAt?: Date | string
     userId?: string | null
@@ -13153,7 +13229,7 @@ export namespace Prisma {
   export type InvoiceCreateManyUserInput = {
     id?: string
     invoiceName: string
-    total: number
+    total: Decimal | DecimalJsLike | number | string
     status: $Enums.InvoiceStatus
     date: Date | string
     dueDate: number
@@ -13168,7 +13244,7 @@ export namespace Prisma {
     note?: string | null
     invoiceItemDescription: string
     invoiceItemQuantity: number
-    invoiceItemRate: number
+    invoiceItemRate: Decimal | DecimalJsLike | number | string
     createdAt?: Date | string
     updatedAt?: Date | string
     mobileUserId?: string | null
@@ -13282,7 +13358,7 @@ export namespace Prisma {
   export type InvoiceUpdateWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
     invoiceName?: StringFieldUpdateOperationsInput | string
-    total?: IntFieldUpdateOperationsInput | number
+    total?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     status?: EnumInvoiceStatusFieldUpdateOperationsInput | $Enums.InvoiceStatus
     date?: DateTimeFieldUpdateOperationsInput | Date | string
     dueDate?: IntFieldUpdateOperationsInput | number
@@ -13297,7 +13373,7 @@ export namespace Prisma {
     note?: NullableStringFieldUpdateOperationsInput | string | null
     invoiceItemDescription?: StringFieldUpdateOperationsInput | string
     invoiceItemQuantity?: IntFieldUpdateOperationsInput | number
-    invoiceItemRate?: IntFieldUpdateOperationsInput | number
+    invoiceItemRate?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     mobileUser?: MobileUserUpdateOneWithoutInvoicesNestedInput
@@ -13306,7 +13382,7 @@ export namespace Prisma {
   export type InvoiceUncheckedUpdateWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
     invoiceName?: StringFieldUpdateOperationsInput | string
-    total?: IntFieldUpdateOperationsInput | number
+    total?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     status?: EnumInvoiceStatusFieldUpdateOperationsInput | $Enums.InvoiceStatus
     date?: DateTimeFieldUpdateOperationsInput | Date | string
     dueDate?: IntFieldUpdateOperationsInput | number
@@ -13321,7 +13397,7 @@ export namespace Prisma {
     note?: NullableStringFieldUpdateOperationsInput | string | null
     invoiceItemDescription?: StringFieldUpdateOperationsInput | string
     invoiceItemQuantity?: IntFieldUpdateOperationsInput | number
-    invoiceItemRate?: IntFieldUpdateOperationsInput | number
+    invoiceItemRate?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     mobileUserId?: NullableStringFieldUpdateOperationsInput | string | null
@@ -13330,7 +13406,7 @@ export namespace Prisma {
   export type InvoiceUncheckedUpdateManyWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
     invoiceName?: StringFieldUpdateOperationsInput | string
-    total?: IntFieldUpdateOperationsInput | number
+    total?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     status?: EnumInvoiceStatusFieldUpdateOperationsInput | $Enums.InvoiceStatus
     date?: DateTimeFieldUpdateOperationsInput | Date | string
     dueDate?: IntFieldUpdateOperationsInput | number
@@ -13345,7 +13421,7 @@ export namespace Prisma {
     note?: NullableStringFieldUpdateOperationsInput | string | null
     invoiceItemDescription?: StringFieldUpdateOperationsInput | string
     invoiceItemQuantity?: IntFieldUpdateOperationsInput | number
-    invoiceItemRate?: IntFieldUpdateOperationsInput | number
+    invoiceItemRate?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     mobileUserId?: NullableStringFieldUpdateOperationsInput | string | null
@@ -13383,7 +13459,7 @@ export namespace Prisma {
   export type InvoiceCreateManyMobileUserInput = {
     id?: string
     invoiceName: string
-    total: number
+    total: Decimal | DecimalJsLike | number | string
     status: $Enums.InvoiceStatus
     date: Date | string
     dueDate: number
@@ -13398,7 +13474,7 @@ export namespace Prisma {
     note?: string | null
     invoiceItemDescription: string
     invoiceItemQuantity: number
-    invoiceItemRate: number
+    invoiceItemRate: Decimal | DecimalJsLike | number | string
     createdAt?: Date | string
     updatedAt?: Date | string
     userId?: string | null
@@ -13407,7 +13483,7 @@ export namespace Prisma {
   export type InvoiceUpdateWithoutMobileUserInput = {
     id?: StringFieldUpdateOperationsInput | string
     invoiceName?: StringFieldUpdateOperationsInput | string
-    total?: IntFieldUpdateOperationsInput | number
+    total?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     status?: EnumInvoiceStatusFieldUpdateOperationsInput | $Enums.InvoiceStatus
     date?: DateTimeFieldUpdateOperationsInput | Date | string
     dueDate?: IntFieldUpdateOperationsInput | number
@@ -13422,7 +13498,7 @@ export namespace Prisma {
     note?: NullableStringFieldUpdateOperationsInput | string | null
     invoiceItemDescription?: StringFieldUpdateOperationsInput | string
     invoiceItemQuantity?: IntFieldUpdateOperationsInput | number
-    invoiceItemRate?: IntFieldUpdateOperationsInput | number
+    invoiceItemRate?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     User?: UserUpdateOneWithoutInvoicesNestedInput
@@ -13431,7 +13507,7 @@ export namespace Prisma {
   export type InvoiceUncheckedUpdateWithoutMobileUserInput = {
     id?: StringFieldUpdateOperationsInput | string
     invoiceName?: StringFieldUpdateOperationsInput | string
-    total?: IntFieldUpdateOperationsInput | number
+    total?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     status?: EnumInvoiceStatusFieldUpdateOperationsInput | $Enums.InvoiceStatus
     date?: DateTimeFieldUpdateOperationsInput | Date | string
     dueDate?: IntFieldUpdateOperationsInput | number
@@ -13446,7 +13522,7 @@ export namespace Prisma {
     note?: NullableStringFieldUpdateOperationsInput | string | null
     invoiceItemDescription?: StringFieldUpdateOperationsInput | string
     invoiceItemQuantity?: IntFieldUpdateOperationsInput | number
-    invoiceItemRate?: IntFieldUpdateOperationsInput | number
+    invoiceItemRate?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     userId?: NullableStringFieldUpdateOperationsInput | string | null
@@ -13455,7 +13531,7 @@ export namespace Prisma {
   export type InvoiceUncheckedUpdateManyWithoutMobileUserInput = {
     id?: StringFieldUpdateOperationsInput | string
     invoiceName?: StringFieldUpdateOperationsInput | string
-    total?: IntFieldUpdateOperationsInput | number
+    total?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     status?: EnumInvoiceStatusFieldUpdateOperationsInput | $Enums.InvoiceStatus
     date?: DateTimeFieldUpdateOperationsInput | Date | string
     dueDate?: IntFieldUpdateOperationsInput | number
@@ -13470,7 +13546,7 @@ export namespace Prisma {
     note?: NullableStringFieldUpdateOperationsInput | string | null
     invoiceItemDescription?: StringFieldUpdateOperationsInput | string
     invoiceItemQuantity?: IntFieldUpdateOperationsInput | number
-    invoiceItemRate?: IntFieldUpdateOperationsInput | number
+    invoiceItemRate?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     userId?: NullableStringFieldUpdateOperationsInput | string | null

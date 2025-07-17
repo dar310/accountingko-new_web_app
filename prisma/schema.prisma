@@ -77,7 +77,7 @@ model Invoice {
   id String @id @default(uuid())
 
   invoiceName   String
-  total         Int
+  total         Decimal
   status        InvoiceStatus
   date          DateTime
   dueDate       Int
@@ -93,7 +93,7 @@ model Invoice {
 
   invoiceItemDescription String
   invoiceItemQuantity    Int
-  invoiceItemRate        Int
+  invoiceItemRate        Decimal
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt

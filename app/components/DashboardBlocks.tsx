@@ -3,8 +3,11 @@ import { Activity, CreditCard, DollarSign, Users } from "lucide-react";
 import { prisma }  from "../utils/db";
 import { requireUser } from "../utils/hooks";
 import { formatCurrency } from "../utils/formatCurrency";
+import { Decimal } from "@prisma/client/runtime/library";
+
 
 async function getData(userId: string) {
+
   const [data, openInvoices, paidinvoices] = await Promise.all([
     prisma.invoice.findMany({
       where: {
@@ -47,6 +50,10 @@ export async function DashboardBlocks() {
   const { data, openInvoices, paidinvoices } = await getData(
     session.user?.id as string
   );
+  const totalRevenue = data.reduce(
+    (acc, invoice) => acc.plus(invoice.total),
+        new Decimal(0)
+    );
 
   return (
     <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4 md:gap-8">
@@ -58,10 +65,10 @@ export async function DashboardBlocks() {
         <CardContent>
           <h2 className="text-2xl font-bold">
             {formatCurrency({
-              amount: data.reduce((acc, invoice) => acc + invoice.total, 0),
-              currency: "PHP",
+                amount: totalRevenue.toNumber(),
+                currency: "PHP",
             })}
-          </h2>
+        </h2>
           <p className="text-xs text-muted-foreground">Based on total volume</p>
         </CardContent>
       </Card>
